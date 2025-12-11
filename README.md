@@ -1,98 +1,112 @@
-[![Shipping files](https://github.com/neuefische/ds-eda-project-template/actions/workflows/workflow-03.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/neuefische/ds-eda-project-template/actions/workflows/workflow-03.yml)
-# ds-project-template
+# EDA Housing Project 1 – King County Housing Data
 
-Template for creating ds simple projects
+This repository contains my exploratory data analysis (EDA) of the King County housing dataset.  
+The goal is to understand the drivers of house prices and to provide clear, non-technical recommendations for a fictional high-budget client.
 
-## Requirements
+---
 
-- pyenv
-- python==3.11.3
+## 📂 Repository Structure
 
-## Setup
+project-root/
+│
+├── notebooks/
+│   └── EDA_Housing_Project_1.ipynb      # Final cleaned analysis notebook
+│
+├── data/
+│   └── kc_house_sales_joined.csv        # Source dataset (not uploaded if large)
+│
+├── slides/
+│   └── housing-project-presentation.pdf # 10-minute client-facing slides
+│
+├── src/                                 # (Optional) scripts for cleaning functions
+│
+└── README.md                             # This document
 
-One of the first steps when starting any data science project is to create a virtual environment. For this project you have to create this environment from scratch yourself. However, you should be already familiar with the commands you will need to do so. The general workflow consists of... 
+---
 
-* setting the python version locally to 3.11.3
-* creating a virtual environment using the `venv` module
-* activating your newly created environment 
-* upgrading `pip` (This step is not absolutely necessary, but will save you trouble when installing some packages.)
-* installing the required packages via `pip`
+## 🎯 Project Objectives
 
-At the end, you want to make sure that people who are interested in your project can create an identical environment on their own computer in order to be able to run your code without running into errors. Therefore you can create a `requirements file` and add it to your repository. You can create such a file by running the following command: 
+- Understand the structure and quality of the housing dataset  
+- Explore key variables, distributions, and relationships  
+- Test hypotheses related to size, renovation, grade, and geography  
+- Translate technical findings into business-ready recommendations  
+- Support a fictional client (“Jennifer Montgomery”) in making a high-value house purchase with resale potential
 
-```bash
-pip freeze > requirements.txt
-```
+---
 
-*Note: In rare case such a requirements file created with `pip freeze` might not ensure that another (especially M1 chip) user can install and execute it properly. This can happen if libraries need to be compiled (e.g. SciPy). Then it also depends on environment variables and the actual system libraries.*
+## 🧪 Methodology Summary
 
-### Unit testing (Optional)
+The final notebook follows a clean and reproducible EDA workflow:
 
-If you write python scripts for your data processing methods, you can also write unit tests. In order to run the tests execute in terminal:
+1. **Understanding the Data**  
+   Column types, missing values, basic structure.
 
-```bash
-pytest
-```
+2. **Hypotheses**  
+   Price drivers (size, grade, renovation, ZIP code, waterfront).
 
-This command will execute all the functions in your project that start with the word **test**.
+3. **Explore**  
+   Univariate and bivariate inspection, distributions, outliers.
 
-## Set up your Environment
-This repo contains a requirements.txt file with a list of all the packages and dependencies you will need.
+4. **Cleaning**  
+   - Dropped rows missing critical values  
+   - Trimmed extreme outliers  
+   - Added log-price variable
 
-Before you can start with plotly in Jupyter Lab you have to install node.js (if you haven't done it before).
-- Check **Node version**  by run the following commands:
-    ```sh
-    node -v
-    ```
-    If you haven't installed it yet, begin at `step_1`. Otherwise, proceed to `step_2`.
+5. **Relationships**  
+   Correlations, scatterplots, boxplots, ZIP code comparison.
 
+6. **Back to Hypotheses**  
+   Clear confirmation/refutation of each hypothesis.
 
-### **`macOS`** type the following commands : 
+7. **Fine Tune**  
+   Cleaned visuals, consistent formatting, removed irrelevant steps.
 
+8. **Explain**  
+   Business-level recommendations for the client.
 
-- `Step_1:` Update Homebrew and install Node by following commands:
-    ```sh
-    brew update
-    brew install node
-    ```
+---
 
-- `Step_2:` Install the virtual environment and the required packages by following commands:
+## 📊 Key Insights (High-Level)
 
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-### **`WindowsOS`** type the following commands :
+- **Size and grade** are the strongest predictors of price.  
+- **Renovated homes** command a meaningful premium.  
+- **Waterfront properties** form a separate luxury tier.  
+- A small cluster of **high-value ZIP codes** consistently outperforms the rest.  
+- Strategic filtering is essential for resale potential within 12 months.
 
+Full details and plots are in the notebook.
 
-- `Step_1:` Update Chocolatey and install Node by following commands:
-    ```sh
-    choco upgrade chocolatey
-    choco install nodejs
-    ```
+---
 
-- `Step_2:` Install the virtual environment and the required packages by following commands.
+## 🖥️ Files to Review
 
-   For `PowerShell` CLI :
+### 🔍 **1. Final EDA Notebook**
+`notebooks/EDA_Housing_Project_1.ipynb`  
+Contains all analysis, figures, reasoning, and cleaned code.
 
-    ```PowerShell
-    pyenv local 3.11.3
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
+### 🎤 **2. Presentation Slides (PDF)**
+`slides/housing-project-presentation.pdf`  
+A 10-minute client-friendly summary of problem → insights → recommendations.
 
-    For `Git-Bash` CLI :
-  
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/Scripts/activate
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
- 
+### 🧰 **3. Optional Scripts**
+Any reusable code (e.g., cleaning functions) lives in `src/`.
+
+---
+
+## 🚀 How to Run the Notebook
+
+1. Clone the repo  
+2. Install dependencies (if a requirements.txt exists)  
+3. Open the notebook in Jupyter or VS Code  
+4. Run all cells from top to bottom
+
+Dataset must be placed in `data/`.
+
+---
+
+## 👤 Author
+
+Keith Grehan  
+AI Product Management Bootcamp – neuefische Berlin
+
+---
